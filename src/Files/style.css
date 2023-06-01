@@ -1,0 +1,41 @@
+
+
+form{
+    width:100%;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url("https://i.pinimg.com/originals/b5/da/01/b5da01032e0d5ef8552f789684991a7d.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form > input{
+    width:65%;
+    height:5vh;
+    font-size: 16px;
+    margin:5px;
+    border:5px solid #e66402;
+}
+
+form > textarea{
+    width:65%;
+    height:60vh;
+    font-size: 20px;
+    border:5px solid #e66402;
+}
+
+form > div{
+    width:65%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+form > div > button{
+    width:80px;
+    height:30px;
+    background-color: #e66402;
+    color:white;
+}
