@@ -1,6 +1,8 @@
 import "./style.css";
 import { useState } from "react";
 import TopBar from "../topbar/TopBar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const BASE = process.env.REACT_APP_URL;
 function CreateBlog() {
   const [title, setTitle] = useState("");
@@ -22,6 +24,11 @@ function CreateBlog() {
       });
       const data = await response.json();
       console.log(data);
+      if (data.success) {
+        toast(data.message);
+      } else {
+        toast(data.message);
+      }
       setContent("");
       setImgUrl("");
       setTitle("");
@@ -57,6 +64,7 @@ function CreateBlog() {
           <button type="submit">Upload</button>
         </div>
       </form>
+      <ToastContainer />
     </>
   );
 }

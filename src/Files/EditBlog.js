@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import TopBar from "../topbar/TopBar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const BASE = process.env.REACT_APP_URL;
+
 function EditBlog() {
   const { id } = useParams();
   const [title, setTitle] = useState("");
@@ -43,6 +47,11 @@ function EditBlog() {
 
       const data = await response.json();
       console.log(data);
+      if (data.success) {
+        toast(data.message);
+      } else {
+        toast(data.message);
+      }
       setContent("");
       setImgUrl("");
       setTitle("");
@@ -55,6 +64,7 @@ function EditBlog() {
   };
   return (
     <>
+      <TopBar />
       <form onSubmit={handleEdit}>
         <input
           type="text"
@@ -80,6 +90,7 @@ function EditBlog() {
           <button type="submit">Edit</button>
         </div>
       </form>
+      <ToastContainer />
     </>
   );
 }

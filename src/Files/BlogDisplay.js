@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./blog.css";
 import { useParams } from "react-router-dom";
+import TopBar from "../topbar/TopBar";
 const BASE = process.env.REACT_APP_URL;
 
 function BlogDisplay() {
@@ -21,18 +22,21 @@ function BlogDisplay() {
     getSingleData();
   }, []);
   return (
-    <div className="container">
-      {!mydata ? (
-        <div>No data to show</div>
-      ) : (
-        <>
-          {/* <img src={mydata.imgUrl} alt="pic" /> */}
+    <>
+      <TopBar />
+      <div className="container">
+        {!mydata ? (
+          <div>No data to show</div>
+        ) : (
+          <>
+            {/* <img src={mydata.imgUrl} alt="pic" /> */}
 
-          <h2>{mydata.title}</h2>
-          <div>{mydata.content}</div>
-        </>
-      )}
-    </div>
+            <h2>{mydata.title}</h2>
+            <div>{mydata.content}</div>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 
